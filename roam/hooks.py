@@ -1,4 +1,5 @@
 from . import __version__ as app_version
+from roam.api import *
 
 app_name = "roam"
 app_title = "Roam"
@@ -8,6 +9,24 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "info@finbyz.com"
 app_license = "MIT"
+app_logo_url = "/assets/axira/images/axira-logo.svg"
+
+
+doc_events = {
+    "Issue": {
+        "validate": "roam.api.issue_validate"
+    }
+}
+
+scheduler_events = {
+
+	"cron": {
+		"11 * * * *": [
+			"roam.api.escalation_email",
+		]
+	},
+}
+
 
 # Includes in <head>
 # ------------------
